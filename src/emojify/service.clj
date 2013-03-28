@@ -52,4 +52,4 @@ This is a simple, silly app that slurps a url and emojifies any word that matche
               ;; Either :jetty or :tomcat (see comments in project.clj
               ;; to enable Tomcat)
               ::bootstrap/type :jetty
-              ::bootstrap/port 8080})
+              ::bootstrap/port (Integer. (or (System/getenv "PORT") 8080))})
