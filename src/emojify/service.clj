@@ -23,7 +23,7 @@
 This is a simple, silly app that slurps a url and emojifies any word that matches an emoji name.
 </p>
 <p style=\"font-size: 50px\">
- For example, to emojify https://github.com, just add it to the root of this app e.g. <a href=\"http://localhost:8080/https://github.com/\">http://localhost:8080/https://github.com/</a>
+ For example, to emojify http://www.nytimes.com/, just add it to the root of this app e.g. <a href=\"/http://www.nytimes.com/\">/http://www.nytimes.com/</a>
 </p>
 </body></html"))
 
