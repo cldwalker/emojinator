@@ -1,1 +1,1 @@
-web: PORT=80 lein trampoline run -m heroku-pedestal.server
+web: lein with-profile production trampoline run -m heroku-pedestal.server
