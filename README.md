@@ -1,6 +1,6 @@
 ## Description
 
-This is a simple, silly app that slurps a url and emojifies any word
+This is a simple, silly app that slurps a url and emojinates any word
 that matches an emoji name.  For example, to emojinate
 https://github.com, just add it to the root of this app e.g.
 [http://localhost:8080/https://github.com](http://localhost:8080/https://github.com/).
