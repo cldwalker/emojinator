@@ -1,4 +1,4 @@
-(ns emojify.service
+(ns emojinator.service
     (:require [io.pedestal.service.http :as bootstrap]
               [io.pedestal.service.http.route :as route]
               [io.pedestal.service.http.body-params :as body-params]
@@ -23,7 +23,7 @@
 This is a simple, silly app that slurps a url and emojifies any word that matches an emoji name.
 </p>
 <p style=\"font-size: 50px\">
- For example, to emojify http://www.nytimes.com/, just add it to the root of this app e.g. <a href=\"/http://www.nytimes.com/\">/http://www.nytimes.com/</a>
+ For example, to emojinate http://www.nytimes.com/, just add it to the root of this app e.g. <a href=\"/http://www.nytimes.com/\">/http://www.nytimes.com/</a>
 </p>
 </body></html"))
 
@@ -39,7 +39,7 @@ This is a simple, silly app that slurps a url and emojifies any word that matche
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
 (def url-for (route/url-for-routes routes))
 
-;; Consumed by emojify.server/create-server
+;; Consumed by emojinator.server/create-server
 (def service {:env :prod
               ;; You can bring your own non-default interceptors. Make
               ;; sure you include routing and set it up right for

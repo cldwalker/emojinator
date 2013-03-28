@@ -9,9 +9,9 @@
 ;
 ; You must not remove this notice, or any other, from this software.
 
-(ns emojify.server
+(ns emojinator.server
   (:gen-class) ; for -main method in uberjar
-  (:require [emojify.service :as service]
+  (:require [emojinator.service :as service]
             [io.pedestal.service.http :as bootstrap]))
 
 (def service-instance

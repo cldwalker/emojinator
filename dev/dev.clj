@@ -12,8 +12,8 @@
 ;; dev mode in repl (can get prod mode by passing prod options to dev-init
 (ns dev
   (:require [io.pedestal.service.http :as bootstrap]
-            [emojify.service :as service]
-            [emojify.server :as server]))
+            [emojinator.service :as service]
+            [emojinator.server :as server]))
 
 (def service (-> service/service
                  (merge  {:env :dev

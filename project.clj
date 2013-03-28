@@ -1,4 +1,4 @@
-(defproject emojify "0.0.1-SNAPSHOT"
+(defproject emojinator "0.0.1-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -21,4 +21,4 @@
   :profiles {:dev {:source-paths ["dev"]}}
   :min-lein-version "2.0.0"
   :resource-paths ["config"]
-  :main ^{:skip-aot true} emojify.server)
+  :main ^{:skip-aot true} emojinator.server)
