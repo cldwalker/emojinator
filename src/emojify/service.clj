@@ -3,21 +3,38 @@
               [io.pedestal.service.http.route :as route]
               [io.pedestal.service.http.body-params :as body-params]
               [io.pedestal.service.http.route.definition :refer [defroutes]]
+              [io.pedestal.service.interceptor :refer [defon-response]]
+              [emoji.core :refer [emoji-response]]
               [ring.util.response :as ring-resp]))
 
-(defn about-page
+(defn html-response [string]
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body string})
+
+(defn emojified-page
   [request]
-  (ring-resp/response (format "Clojure %s" (clojure-version))))
+  (html-response (slurp (-> request :path-params :url))))
 
 (defn home-page
   [request]
-  (ring-resp/response "Hello World!"))
+  (html-response "<html><body>
+<p style=\"font-size: 50px\">
+This is a simple, silly app that slurps a url and emojifies any word that matches an emoji name.
+</p>
+<p style=\"font-size: 50px\">
+ For example, to emojify https://github.com, just add it to the root of this app e.g. <a href=\"http://localhost:8080/https://github.com/\">http://localhost:8080/https://github.com/</a>
+</p>
+</body></html"))
+
+(defon-response emoji-interceptor
+  [response]
+  (emoji-response response :wild true))
 
 (defroutes routes
   [[["/" {:get home-page}
-     ;; Set default interceptors for /about and any other paths under /
-     ^:interceptors [(body-params/body-params)]
-     ["/about" {:get about-page}]]]])
+     ["/*url"  {:get emojified-page}
+     ^:interceptors [emoji-interceptor]]]]])
 
 ;; You can use this fn or a per-request fn via io.pedestal.service.http.route/url-for
 (def url-for (route/url-for-routes routes))
