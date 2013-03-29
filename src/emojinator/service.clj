@@ -25,14 +25,19 @@ This is a simple, silly app that slurps a url and emojinates any word that match
 <p style=\"font-size: 50px\">
  For example, to emojinate http://www.nytimes.com/, just add it to the root of this app e.g. <a href=\"/http://www.nytimes.com/\">/http://www.nytimes.com/</a>
 </p>
+<p style=\"font-size: 25px\">
+<a href=\"https://github.com/cldwalker/emojinator\">Source Code</a>
+</p>
 </body></html"))
 
+(defn stub-page [request] (html-response ""))
 (defon-response emoji-interceptor
   [response]
   (emoji-response response :wild true))
 
 (defroutes routes
   [[["/" {:get home-page}
+     ["/favicon.ico" {:get stub-page}]
      ["/*url"  {:get emojified-page}
      ^:interceptors [emoji-interceptor]]]]])
 
